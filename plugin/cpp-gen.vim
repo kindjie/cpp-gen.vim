@@ -80,6 +80,8 @@ function GenDef()
 	let headerName = @%
 	let sourceName = expand('%:t:r') . ".cpp"
 	if bufexists(sourceName) <= 0
+	  let sourceName = expand('%:t:r') . ".cc"
+	if bufexists(sourceName) <= 0
 		echo "Source file not loaded: " . sourceName
 	else
 		" Get the generated code
@@ -102,6 +104,8 @@ endfunction
 function GotoDef()
 	let headerName = @%
 	let sourceName = expand('%:t:r') . ".cpp"
+	if bufexists(sourceName) <= 0
+	  let sourceName = expand('%:t:r') . ".cc"
 	if bufexists(sourceName) <= 0
 		echo "Source file not loaded: " . sourceName
 		return 0
